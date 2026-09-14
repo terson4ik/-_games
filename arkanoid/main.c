@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    point game_field_edge;
+    point game_field_edge, tmp_p;
     rectangle cup;
     block **blks;
     paddle *p;
@@ -20,7 +20,12 @@ int main(void)
 
     getmaxyx(stdscr, game_field_edge.y, game_field_edge.x);
     b = ball_init(&game_field_edge);
+    tmp_p = ball_get_point(b);
+    draw_pixel(&tmp_p, 2, 2, CHR_BALL);
+
     p = paddle_init(&game_field_edge);
+    tmp_p = paddle_get_point(p);
+    draw_pixel(&tmp_p, PADDLE_LEN, 1, CHR_PADDLE);
     blks = blocks_init(&game_field_edge);
 
     while ((key = getch()) != KEY_ESCAPE && key != 'q' && key != 'Q') {

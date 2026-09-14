@@ -34,7 +34,7 @@ ball *ball_init(point *game_field)
         return NULL;
 
     nball->pos.x = game_field->x / 2;
-    nball->pos.y = game_field->y / 2;
+    nball->pos.y = game_field->y / 4;
 
     nball->shift_pos.x = (time(NULL) % 2) == 0 ? LEFT : RIGHT;
     nball->shift_pos.y = FALL;
@@ -52,7 +52,7 @@ paddle *paddle_init(point *game_field)
     return npaddle;
 }
 
-block *blocks_init(point *game_field)
+block *blocks_init(rectangle *cup_field)
 {
     int col, row, cx, cy;
     block *nblks = malloc(sizeof(*nblks) * BLOCK_COLS * BLOCK_ROWS);

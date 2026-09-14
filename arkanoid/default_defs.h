@@ -26,5 +26,6 @@ enum delays { DELAY_EASY = 10, DELAY_NORM = 100, DELAY_HARD = 1000 };
 #define BLOCK_COLS  4
 #define BLOCK_ROWS  3
 #define AREA_WIDTH  (BLOCK_SIZE * BLOCK_COLS)
+#define PADDLE_LEN  4
 
 #endif
