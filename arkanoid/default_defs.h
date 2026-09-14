@@ -1,5 +1,5 @@
-#ifndef _H_SENTRY
-#define _H_SENTRY
+#ifndef DEFAULT_DEFS_H_SENTRY
+#define DEFAULT_DEFS_H_SENTRY
 
 
 #endif
