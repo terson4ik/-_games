@@ -21,7 +21,7 @@ int main(void)
     getmaxyx(stdscr, game_field_edge.y, game_field_edge.x);
     b = ball_init(&game_field_edge);
     p = paddle_init(&game_field_edge);
-    blks = blocks_init(BLOCK_ROWS, BLOCK_COLS, &game_field_edge);
+    blks = blocks_init(&game_field_edge);
 
     while ((key = getch()) != KEY_ESCAPE && key != 'q' && key != 'Q') {
         switch (key) {

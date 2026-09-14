@@ -1,6 +1,12 @@
 #include <stdio.h> /* NULL */
 #include <stdlib.h> /* malloc & free */
+#include <time.h> /* use in init ball */
 #include "arkanoid.h"
+
+#define FALL    +1
+#define RISE    -1
+#define LEFT    -1
+#define RIGHT   +1
 
 struct  ball_tag {
     point pos, shift_pos;
@@ -23,17 +29,38 @@ int arkanoid_handle_resize(rectangle *cup, point *new_p)
 
 ball *ball_init(point *game_field)
 {
-    return NULL;
+    ball *nball = malloc(sizeof(*nball));
+    if (!nball)
+        return NULL;
+
+    nball->pos.x = game_field->x / 2;
+    nball->pos.y = game_field->y / 2;
+
+    nball->shift_pos.x = (time(NULL) % 2) == 0 ? LEFT : RIGHT;
+    nball->shift_pos.y = FALL;
+    return nball;
 }
 
 paddle *paddle_init(point *game_field)
 {
-    return NULL;
+    paddle *npaddle = malloc(sizeof(*npaddle));
+    if (!npaddle)
+        return NULL;
+    
+    npaddle->left.x = game_field->x / 2;
+    npaddle->left.y = game_field->y / 2;
+    return npaddle;
 }
 
-block **blocks_init(int row, int col, point *game_field)
+block *blocks_init(point *game_field)
 {
-    return NULL;
+    int col, row, cx, cy;
+    block *nblks = malloc(sizeof(*nblks) * BLOCK_COLS * BLOCK_ROWS);
+    if (!nblks)
+        return NULL;
+
+
+    return nblks;
 }
 
 
@@ -81,15 +108,15 @@ point paddle_get_point(paddle *p)
 
 void ball_destroy(ball *b)
 {
-
+    free(b);
 }
 
 void paddle_destroy(paddle *p)
 {
-
+    free(p);
 }
 
 void blocks_destroy(block **blks)
 {
-
+    free(blks);
 }

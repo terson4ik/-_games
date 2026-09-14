@@ -11,7 +11,7 @@ int arkanoid_handle_resize(rectangle *cup, point *new_p);
 
 ball *ball_init(point *game_field);
 paddle *paddle_init(point *game_field);
-block **blocks_init(int row, int col, point *game_field);
+block *blocks_init(point *game_field);
 
 void paddle_move(paddle *p, int dx, rectangle *small_field);
 int ball_update(ball *b, paddle *p, block *blks[], rectangle *small_field);
